@@ -1,7 +1,12 @@
 {
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "prebranch": "git branch gh-pages",
+    "branch": "git checkout gh-pages && git merge main --no-edit && npm run build",
+    "postbranch": "git add dist -f && git commit -m 'Deploy to github pages'",
+    "push": "git subtree push --prefix dist origin gh-pages",
+    "deploy": "npm run branch && npm run push"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",

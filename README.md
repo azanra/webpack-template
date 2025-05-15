@@ -53,16 +53,16 @@ module.exports = {
 };
 ```
 
-    - Specifying the entry point, which is the main file that dependant on
-    other module (importing). the dependancy graph will look like this
-    index.js <---- otherModule
-    - The location of our bundle js file and it's path. and everytime we run
+- Specifying the entry point, which is the main file that dependant on
+  other module (importing). the dependancy graph will look like this
+  index.js <---- otherModule
+  - The location of our bundle js file and it's path. and everytime we run
     the webpack, we want to clean the dist file first, so that it only contain the newest bundle
-    - Plugin to bundle and inject our javascript into html
-    - Module (Loader) that will
-        - Look for any css import in js file and transform it into text (css loader) and from the text, applying it to the js (style loader)
-        - Look for any img url path in our html (eg img with src), so that it will become proper path instead of regular string
-        - Look for any img that was imported in the javascript and return the specified images
+  - Plugin to bundle and inject our javascript into html
+  - Module (Loader) that will
+    - Look for any css import in js file and transform it into text (css loader) and from the text, applying it to the js (style loader)
+    - Look for any img url path in our html (eg img with src), so that it will become proper path instead of regular string
+    - Look for any img that was imported in the javascript and return the specified images
 
 ```js
 const { default: merge } = require("webpack-merge");
@@ -78,11 +78,11 @@ module.exports = merge(webpackCommon, {
 });
 ```
 
-    - Merging our dev config with our common config
-    - Using development mode and dev tool eval source map
+- Merging our dev config with our common config
+  - Using development mode and dev tool eval source map
     So that the error message will match the actual file and lines
     inctead of the bundled file
-    - Using webpack dev serve so that any changes made to the bundled
+  - Using webpack dev serve so that any changes made to the bundled
     file, will recognized immediately without the need to run webpack
     on each change that we made
 
@@ -96,8 +96,8 @@ module.exports = merge(webpackCommon, {
 });
 ```
 
-    - Merging the prod config with our common config
-    - Using production mode (that will try to minimize the bundle size) and
+- Merging the prod config with our common config
+  - Using production mode (that will try to minimize the bundle size) and
     our error message will match the actual line and file instead of the bundled one
 
 ```js
@@ -112,15 +112,15 @@ module.exports = merge(webpackCommon, {
   },
 ```
 
-    - start : Running our dev server with dev config
-    - build : Bundle the project with prod config
-    - prebranch : create new branch for deployment (run automatically before branch / Life cycle script)
-    - branch : Switch to the new branch, merge it with our main branch and bundle our project
-    - postbranch: add our dist file and commit it (run automatically after branch / Life cycle script)
-    - push : Push the change of our dist fille into our new branch
-    - deploy : run branch script if it's not error, then run push script
+- start : Running our dev server with dev config
 
+  - build : Bundle the project with prod config
+  - prebranch : create new branch for deployment (run automatically before branch / Life cycle script)
+  - branch : Switch to the new branch, merge it with our main branch and bundle our project
+  - postbranch: add our dist file and commit it (run automatically after branch / Life cycle script)
+  - push : Push the change of our dist fille into our new branch
+  - deploy : run branch script if it's not error, then run push script
 
-    - [Webpack merge](https://webpack.js.org/guides/production/) - On how to split the webpack config
-    - [JSON Script](https://www.upgrad.com/blog/introduction-to-package-json-scripts-in-node-js/) - On how to use lifecycle script
-    - [Odin project](https://www.theodinproject.com/lessons/node-path-javascript-restaurant-page) - On deploying the bundled dist to github
+  - [Webpack merge](https://webpack.js.org/guides/production/) - On how to split the webpack config
+  - [JSON Script](https://www.upgrad.com/blog/introduction-to-package-json-scripts-in-node-js/) - On how to use lifecycle script
+  - [Odin project](https://www.theodinproject.com/lessons/node-path-javascript-restaurant-page) - On deploying the bundled dist to github

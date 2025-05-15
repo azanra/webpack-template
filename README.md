@@ -1,7 +1,13 @@
 # webpack-template
 
-Template repository, since it will be pain in the ass to do it again from scrath everytime i need to create a new vanilla js project
+Template repository, since it will be pain in the ass to do it again from scratch everytime i need to create a new vanilla js project
 Here how to use the template [Github Template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+
+run this to install the dependency
+
+```js
+  npm install
+```
 
 Webpack configuration template for HTML, CSS, and Javascript project.
 It will bundle: - Javascript - Img imported in js or html with link - CSS imported in js - HTML
